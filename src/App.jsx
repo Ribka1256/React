@@ -9,7 +9,8 @@ import { MovieProvider } from "./context/MovieContext";
 import Favorites from "./page/Favorites";
 import Navbar from "./componets/Navbar";*/
 //import DigitalClock from "./DigitalClock";
-import Note from "./Note"; 
+//import Note from "./Note"; 
+import HomePage from "./Pages/HomePage";
 function App() {
   /*
   return (
@@ -24,7 +25,7 @@ function App() {
     </MovieProvider>
   );*/
   return(
-    <><Note/></>
+    <><HomePage/></>
   )
 }
 
