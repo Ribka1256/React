@@ -9,7 +9,8 @@ import { MovieProvider } from "./context/MovieContext";
 import Favorites from "./page/Favorites";
 import Navbar from "./componets/Navbar";*/
 //import DigitalClock from "./DigitalClock";
-//import Note from "./Note"; 
+//import Note from "./Note";
+import { Routes,Route } from "react-router-dom"; 
 import HomePage from "./Pages/HomePage";
 function App() {
   /*
@@ -25,7 +26,12 @@ function App() {
     </MovieProvider>
   );*/
   return(
-    <><HomePage/></>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/checkout" element={<h1>Checkout</h1>}/>
+    </Routes>
+    //
+
   )
 }
 
