@@ -42,7 +42,7 @@ function Note() {
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = "My Notes.json"; // file name
+    link.download = "My Notes Recorder.json"; // file name
     link.click();
 
     URL.revokeObjectURL(url);
@@ -55,7 +55,7 @@ function Note() {
   return (
     <>
       <div>
-        <h1>Note Recorder</h1>
+        <h1>Note Recorder Web</h1>
 
         <div>
           <textarea
