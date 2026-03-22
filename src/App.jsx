@@ -13,7 +13,8 @@ import Navbar from "./componets/Navbar";*/
 import { Routes,Route } from "react-router-dom"; 
 import HomePage from "./Pages/HomePage";
 import CheckoutPage from "./Pages/CheckoutPage";
-import Orders from "./Pages/Orders";
+import Orders from "./Pages/OrdersPage";
+import Tracking from "./Pages/TrackingPage";
 function App() {
   /*
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route index element={<HomePage/>}/>
       <Route path="/checkout" element={<CheckoutPage/>}/>
       <Route path="/orders" element={<Orders/>}/>
+      <Route path="/tracking" element={<Tracking/>}/>
     </Routes>
     //
 
