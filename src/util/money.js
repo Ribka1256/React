@@ -1,4 +1,4 @@
 
-export function formatMoney(amountCent){
-   return `$${(amountCent / 100).toFixed(2)}`
+export function formatMoney(amountCents){
+   return `$${(amountCents / 100).toFixed(2)}`
 }

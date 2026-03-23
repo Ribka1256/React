@@ -31,11 +31,11 @@ function App() {
     </MovieProvider>
   );*/
     const [cart, setCart] = useState([])
-    useEffect(() => 
-  {  axios.get("/api/cart-item?expand=product")
-.then((response) =>{
-setCart(response.data)
-})}, [])
+useEffect(() => {
+  axios.get('/api/cart-items?expand=product')
+    .then(res => setCart(res.data))
+    .catch(err => console.error(err));
+}, []);
   return (
     <Routes>
       <Route index element={<HomePage  cart={cart} />} />
@@ -43,7 +43,7 @@ setCart(response.data)
       <Route path="/orders" element={<Orders />} />
       <Route path="/tracking" element={<Tracking />} />
     </Routes>
-    //
+    // 
   );
 }
 
