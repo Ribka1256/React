@@ -3,18 +3,15 @@ import { useEffect, useState } from 'react';
 import Header  from "../Componet/Header";
 import "./HomePage.css";
 import {products} from "../../Starting-code/data/products"
-function HomePage() {
+function HomePage({cart = []}) {
   const [products, setProducts] = useState([])
-  const [cart, setCart] = useState([])
+
   useEffect(() =>
  { axios.get('/api/products')
   .then((response) =>{
     setProducts(response.data)
   })
-axios.get('/api/cart-item')
-.then((response) =>{
-setCart(response.data)
-})
+
 },[])
   return (
     <>

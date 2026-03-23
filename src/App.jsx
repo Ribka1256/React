@@ -11,6 +11,8 @@ import Navbar from "./componets/Navbar";*/
 //import DigitalClock from "./DigitalClock";
 //import Note from "./Note";
 import { Routes, Route } from "react-router-dom";
+import axios  from "axios";
+import { useEffect, useState } from "react";
 import HomePage from "./Pages/HomePage";
 import CheckoutPage from "./Pages/Checkout/CheckoutPage";
 import Orders from "./Pages/OrdersPage";
@@ -28,10 +30,16 @@ function App() {
       </main>
     </MovieProvider>
   );*/
+    const [cart, setCart] = useState([])
+    useEffect(() => 
+  {  axios.get('/api/cart-item')
+.then((response) =>{
+setCart(response.data)
+})}, [])
   return (
     <Routes>
-      <Route index element={<HomePage />} />
-      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route index element={<HomePage  cart={cart} />} />
+      <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
       <Route path="/orders" element={<Orders />} />
       <Route path="/tracking" element={<Tracking />} />
     </Routes>
