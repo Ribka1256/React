@@ -10,14 +10,14 @@ function Orders({ cart = [] }) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios
+    const getOrder = async () =>{
+      const response =  await axios
       .get('/api/orders?expand=products')
-      .then((response) => {
-        setOrders(response.data);
-      })
+        setOrders(response.data)
       .catch((error) => {
         console.error("Orders fetch error:", error);
-      });
+      });}
+      getOrder()
   }, []);
 
   return (
