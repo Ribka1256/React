@@ -11,11 +11,11 @@ import Navbar from "./componets/Navbar";*/
 //import DigitalClock from "./DigitalClock";
 //import Note from "./Note";
 import { Routes, Route } from "react-router-dom";
-import axios  from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./Pages/home/HomePage";
 import CheckoutPage from "./Pages/Checkout/CheckoutPage";
-import Orders from "./Pages/OrdersPage";
+import Orders from "./Pages/orders/OrdersPage";
 import Tracking from "./Pages/TrackingPage";
 function App() {
   /*
@@ -30,20 +30,21 @@ function App() {
       </main>
     </MovieProvider>
   );*/
-    const [cart, setCart] = useState([])
-useEffect(() => {
-  axios.get('/api/cart-items?expand=product')
-    .then(res => setCart(res.data))
-    .catch(err => console.error(err));
-}, []);
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    axios
+      .get("/api/cart-items?expand=product")
+      .then((res) => setCart(res.data))
+      .catch((err) => console.error(err));
+  }, []);
   return (
     <Routes>
-      <Route index element={<HomePage  cart={cart} />} />
+      <Route index element={<HomePage cart={cart} />} />
       <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
       <Route path="/orders" element={<Orders cart={cart} />} />
       <Route path="/tracking" element={<Tracking />} />
     </Routes>
-    // 
+    //
   );
 }
 
