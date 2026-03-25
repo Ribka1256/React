@@ -8,6 +8,7 @@ import { PaymentSummary } from "./PaymentSummary";
 function CheckoutPage({ cart}) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [payment, setPayment] = useState(null);
+
   useEffect(() => {
     const getCheckout = async () => {
       let response = await axios.get(
@@ -18,6 +19,8 @@ function CheckoutPage({ cart}) {
 
     response = await axios.get("/api/payment-summary")
       setPayment(response.data);
+
+  
          };
           getCheckout();
   }, []);
@@ -33,6 +36,7 @@ function CheckoutPage({ cart}) {
         <div className="checkout-grid">
           <OrderSummary cart={cart} deliveryOptions={deliveryOptions} />
           <PaymentSummary payment={payment} />
+          
         </div>
       </div>
     </>

@@ -31,21 +31,22 @@ function App() {
     </MovieProvider>
   );*/
   const [cart, setCart] = useState([]);
-useEffect(() => {
-  const fetchAppData = async () => {
+   const LoadData = async () => {
     try {
-      const response = await axios.get('/api/cart');
+      const response = await axios.get('/api/cart-items?expand=product');
       setCart(response.data);
     } catch (error) {
       console.error("App data fetch error:", error);
     }
   };
 
-  fetchAppData();
+useEffect(() => {
+ 
+  LoadData();
 }, []);
   return (
     <Routes>
-      <Route index element={<HomePage cart={cart} />} />
+      <Route index element={<HomePage cart={cart}  LoadData={LoadData}/>} />
       <Route path="checkout" element={<CheckoutPage cart={cart} />} />
       <Route path="orders" element={<Orders cart={cart} />} />
        <Route

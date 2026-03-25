@@ -17,8 +17,8 @@ export function OrderSummary({ cart, deliveryOptions }) {
             <div key={cartItem.productId} className="cart-item-container">
               <DeliveryDate selectedDeliveryOption={selectedDeliveryOption}/> 
 
-            <CartItemDetail cartItem={cartItem} deliveryOptions={deliveryOptions}/>
       
+        <CartItemDetail cartItem={cartItem} deliveryOptions={deliveryOptions}/>
             </div>
           );
         })}
