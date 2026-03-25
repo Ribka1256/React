@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import HomePage from "./Pages/home/HomePage";
 import CheckoutPage from "./Pages/Checkout/CheckoutPage";
 import Orders from "./Pages/orders/OrdersPage";
-import Tracking from "./Pages/TrackingPage";
+import Tracking from "./Pages/tracking/TrackingPage";
 function App() {
   /*
   return (
@@ -31,20 +31,27 @@ function App() {
     </MovieProvider>
   );*/
   const [cart, setCart] = useState([]);
-  useEffect(() => {
-    const fetchAppData = async () =>
-   { const response = await axios
-      .get("/api/cart-items?expand=product")
-      setCart(response.data)
-      .catch((err) => console.error(err));}
-      fetchAppData()
-  }, []);
+useEffect(() => {
+  const fetchAppData = async () => {
+    try {
+      const response = await axios.get('/api/cart');
+      setCart(response.data);
+    } catch (error) {
+      console.error("App data fetch error:", error);
+    }
+  };
+
+  fetchAppData();
+}, []);
   return (
     <Routes>
       <Route index element={<HomePage cart={cart} />} />
-      <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
-      <Route path="/orders" element={<Orders cart={cart} />} />
-      <Route path="/tracking" element={<Tracking />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="orders" element={<Orders cart={cart} />} />
+       <Route
+        path="tracking/:orderId/:productId"
+        element={<Tracking cart={cart} />}
+      />
     </Routes>
     //
   );

@@ -18,6 +18,7 @@ export function OrderSummary({ cart, deliveryOptions }) {
               <DeliveryDate selectedDeliveryOption={selectedDeliveryOption}/> 
 
             <CartItemDetail cartItem={cartItem} deliveryOptions={deliveryOptions}/>
+      
             </div>
           );
         })}

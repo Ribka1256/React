@@ -5,7 +5,7 @@ import "./CheckoutPage.css";
 import { OrderSummary } from "./OrderSummary";
 import { PaymentSummary } from "./PaymentSummary";
 
-function CheckoutPage({ cart = [] }) {
+function CheckoutPage({ cart}) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [payment, setPayment] = useState(null);
   useEffect(() => {
