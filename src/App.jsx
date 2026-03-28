@@ -14,7 +14,7 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import HomePage from "./Pages/home/HomePage";
-import CheckoutPage from "./Pages/Checkout/CheckoutPage";
+import{ CheckoutPage} from "./Pages/Checkout/CheckoutPage";
 import Orders from "./Pages/orders/OrdersPage";
 import Tracking from "./Pages/tracking/TrackingPage";
 function App() {
@@ -47,7 +47,7 @@ useEffect(() => {
   return (
     <Routes>
       <Route index element={<HomePage cart={cart}  LoadData={LoadData}/>} />
-      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} LoadData={LoadData}/>} />
       <Route path="orders" element={<Orders cart={cart} />} />
        <Route
         path="tracking/:orderId/:productId"
