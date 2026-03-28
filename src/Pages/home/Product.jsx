@@ -17,6 +17,7 @@ export function Product({product, LoadData}){
               const  selctedQuantity = Number( event.target.value)
               setQuantity(selctedQuantity)
               }
+    
     return(
            <div  className="product-container">
             <div className="product-image-container">
