@@ -1,10 +1,22 @@
- import { Link } from "react-router-dom";
+ import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import dayjs from "dayjs";
 import { Fragment } from "react";
-export function OrderDetail({order}) {
+
+export function OrderDetail({order, LoadData}) {
+
+
   return (
     <div className="order-details-grid">
       {order.products.map((orderProduct, index) => {
+       
+  const addtoCart = async () => {
+    await axios.put('/api/cart-items', {
+       productId: orderProduct.product.id,
+      quantity: 1
+    });
+    await LoadData();
+  };
         // If 'product' object is missing from backend, show a fallback
         const productName =
           orderProduct.product?.name || "Loading product name...";
@@ -32,7 +44,7 @@ export function OrderDetail({order}) {
                   src="images/icons/buy-again.png"
                   alt="buy again"
                 />
-                <span className="buy-again-message">Add to Cart</span>
+                <span className="buy-again-message" onClick={addtoCart}>Add to Cart</span>
               </button>
             </div>
 
