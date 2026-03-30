@@ -11,7 +11,7 @@ export function OrderDetail({order, LoadData}) {
       {order.products.map((orderProduct, index) => {
        
   const addtoCart = async () => {
-    await axios.put('/api/cart-items', {
+    await axios.post('/api/cart-items', {
        productId: orderProduct.product.id,
       quantity: 1
     });

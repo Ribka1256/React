@@ -51,7 +51,7 @@ useEffect(() => {
       <Route path="orders" element={<Orders cart={cart} LoadData={LoadData}/>} />
        <Route
         path="tracking/:orderId/:productId"
-        element={<Tracking cart={cart} />}
+        element={<Tracking cart={cart} LoadData={LoadData}/>}
       />
     </Routes>
     //

@@ -6,13 +6,14 @@ import Header from '../../Componet/Header';
 import './TrackingPage.css'
 
 
-function Tracking({ cart }) {
+function Tracking({ cart, LoadData }) {
   const {orderId, productId} = useParams()
   const [order, setOrder] = useState(null)
   useEffect(() =>{
     const getTracking = async () =>{
       const response = await axios.get(`/api/orders/${orderId}?expand=products`)
       setOrder(response.data)
+      await LoadData()
     }
     getTracking()
   },[orderId])
